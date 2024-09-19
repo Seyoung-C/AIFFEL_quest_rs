@@ -33,11 +33,13 @@ AIFFEL_quest_rs
 │   │      ├── Ex02_Seyoung_Choi(1).ipynb
 │   │      └── README.md
 │   ├── Ex03
-│   │      ├── Ex03_Seyoung_Choi.ipynb             *2024-09-09 update!
+│   │      ├── Ex03_Seyoung_Choi.ipynb
 │   │      └── README.md
 │   ├── Ex04
+│   │      ├── Ex04_Seyoung_Choi.ipynb
 │   │      └── README.md
 │   ├── Ex05
+│   │      ├── Ex05_Seyoung_Choi.ipynb             *2024-09-19 update!
 │   │      └── README.md
 │   ├── Ex06
 │   │      └── README.md
