@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import tensorflow as tf
 import wandb
 from wandb.integration.keras import WandbMetricsLogger
@@ -13,21 +10,13 @@ from airflow.operators.python import PythonOperator
 import numpy as np
 
 
-# In[2]:
-
-
 wandb.login(key= "513c4269349cec2cb6b8c9019721be7de2fdfa8b")
-
-
-# In[3]:
 
 
 # Wandb 설정
 WANDB_PROJECT = "MLOps"
 WANDB_ENTITY = "seyoung-c-chung-ang-university"
 
-
-# In[4]:
 
 
 def load_and_preprocess_data():
@@ -43,9 +32,6 @@ def load_and_preprocess_data():
 
     return (x_train, y_train), (x_test, y_test)
 
-
-
-# In[5]:
 
 
 from tensorflow.keras import layers, models, optimizers
@@ -73,9 +59,6 @@ def create_model(learning_rate=0.001, conv1_filters=32, conv2_filters=64):
                   metrics=['accuracy'])
     
     return model
-
-
-# In[9]:
 
 
 def train_model(**context):
@@ -129,8 +112,6 @@ def train_model(**context):
     wandb.finish()
 
 
-# In[7]:
-
 
 def hyperparameter_sweep():
     """W&B를 사용한 하이퍼파라미터 튜닝"""
@@ -148,8 +129,6 @@ def hyperparameter_sweep():
     sweep_id = wandb.sweep(sweep_config, project=WANDB_PROJECT)
     wandb.agent(sweep_id, train_model, count=5)
 
-
-# In[10]:
 
 
 # Airflow DAG 정의
@@ -205,20 +184,11 @@ if __name__ == "__main__":
     # hyperparameter_sweep()
 
 
-# In[12]:
-
 
 execution_date = datetime(2024, 11, 10, tzinfo=local_tz)
 dag.test(execution_date=execution_date)
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 
